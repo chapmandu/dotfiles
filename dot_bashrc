@@ -1,0 +1,52 @@
+# If not running interactively, don't do anything
+case $- in
+*i*) ;;
+*) return ;;
+esac
+
+export CLICOLOR=1
+export LANG="en_US.UTF-8"
+
+alias rm="rm -i"
+alias mv="mv -i"
+alias cp="cp -i"
+
+alias ls="ls --color=auto"
+
+export PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
+export EDITOR="vim"
+
+# enable partial history completion
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+
+# Alias definitions.
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+eval "$(thefuck --alias)"
+
+# VSCODE Shell integration
+[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path bash)"
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# go
+export PATH=$PATH:/usr/local/go/bin
+
+# cookiecutter
+export PATH=$PATH:$HOME/.local/bin
+
+# source "$HOME/.rye/env"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+. "$HOME/.cargo/env"
+
+# starship terminal prompt
+eval "$(starship init bash)"

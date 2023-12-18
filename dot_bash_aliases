@@ -1,0 +1,82 @@
+package_upgrade() {
+  echo "-----------------------------------------------------------------------"
+  sudo apt update
+  apt list --upgradable
+  sudo apt upgrade -y
+  sudo apt autoclean
+  sudo apt autoremove -y
+  echo "-----------------------------------------------------------------------"
+  echo "Update Flatpaks..."
+  flatpak update -y
+  echo "-----------------------------------------------------------------------"
+  echo "Update Snaps..."
+  sudo snap refresh
+  echo "-----------------------------------------------------------------------"
+}
+alias upgrade="package_upgrade"
+
+# git shortcuts
+alias st='git status'
+alias dif='git diff'
+alias dev='git switch develop'
+alias rel='git switch release'
+alias prod='git switch production'
+alias prog='git add . && git commit -m "progress commit"'
+alias undo='git reset --soft HEAD~1'
+
+# prune local tracking branches that do codenot exist on remote
+prune_tracking_branches() {
+  git fetch --prune
+  git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -D
+}
+
+# returns a git log between 2 origin branches.. great for checking what will be deployed
+# usage:  'commits develop release'
+#         'commits develop release [long] # actually any 3rd arg will return long format
+_commits() {
+  if [ -z "$3" ]; then
+    local format="%C(white)%s%x09%C(blue)%an"
+  else
+    local format="%C(white)%s%x09%C(blue)%an%x09%C(yellow)%ad%x09%C(green)%h"
+  fi
+  git log --decorate --no-merges --abbrev-commit --date-order --reverse --pretty=format:"$format" origin/$2..origin/$1
+}
+alias commits="_commits"
+
+# ohmyzsh git style aliases for bash
+alias gb="git --no-pager branch"
+alias gco="git checkout"
+# alias gc="git commit -m"
+alias gcam="git add . && git commit -m"
+alias gcp="git cherry-pick"
+alias gl="git pull"
+alias gp="git push"
+# alias gd="git diff"
+alias glog="git log --oneline --decorate --color --graph"
+alias glogs="git log --stat --max-count=20" # yes
+# alias grhh="git reset HEAD --hard"
+alias stash="git stash"
+alias pop="git stash pop"
+
+killbranch() {
+  gp -d origin $1
+  gb -D $1
+}
+
+# shorten the run script call
+alias run='./run'
+
+# utils
+alias ded="find . -depth -type d -empty -delete" # delete all empty directories under the current
+alias version="lsb_release -r -s"   # linux version
+
+toggle_vpn() {
+  bash -c 'if [[ -n $(nmcli con show Zenu | grep "VPN connected") ]]; then nmcli con down Zenu; else nmcli con up Zenu; fi'
+}
+alias togglevpn=toggle_vpn
+
+# overrides
+alias cat="batcat"
+alias python="python3"
+
+alias zel="zellij ls"
