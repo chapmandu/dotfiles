@@ -79,4 +79,4 @@ alias togglevpn=toggle_vpn
 alias cat="batcat"
 alias python="python3"
 
-alias zel="zellij ls"
+alias zel="zellij ls && echo '' && echo '> zellij attach [session-name]'"
