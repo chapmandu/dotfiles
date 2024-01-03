@@ -7,7 +7,7 @@ package_upgrade() {
   sudo apt autoremove -y
   echo "-----------------------------------------------------------------------"
   echo "Update Flatpaks..."
-  flatpak update -y
+  sudo flatpak update -y
   echo "-----------------------------------------------------------------------"
   echo "Update Snaps..."
   sudo snap refresh
