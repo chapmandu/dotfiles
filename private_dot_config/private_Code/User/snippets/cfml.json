@@ -1,0 +1,587 @@
+{
+	"DeserializeJSON": {
+		"body": ["DeserializeJSON($1)"],
+		"description": "Deserialize JSON",
+		"prefix": "des"
+	},
+	"recordCount": {
+		"body": ["recordCount"],
+		"description": "recordCount",
+		"prefix": "recordCount"
+	},
+	"returnAsQuery": {
+		"body": ["returnAs = \"query\""],
+		"description": "returnAsQuery",
+		"prefix": "returnAsQuery"
+	},
+	"returnAsObject": {
+		"body": ["returnAs = \"object\""],
+		"description": "returnAsObject",
+		"prefix": "returnAsObject"
+	},
+	"returnTypeArray": {
+		"body": ["returnType = \"array\""],
+		"description": "returnTypeArray",
+		"prefix": "returnTypeArray"
+	},
+	"Javadoc": {
+		"body": [
+			"/**",
+			" * $1",
+			" *",
+			" * [section: Application]",
+			" * [category: String Functions]",
+			" *",
+			" * @arg1 $2",
+			" * @arg2 $3",
+			" */"
+		],
+		"description": "Javadoc",
+		"prefix": "doc"
+	},
+	"QueryColumnData": {
+		"body": ["QueryColumnData($1, \"$2\")"],
+		"description": "QueryColumnData",
+		"prefix": "QueryDataColumn"
+	},
+	"StructKeyExists": {
+		"body": ["StructKeyExists($1, \"$2\")"],
+		"description": "StructKeyExists",
+		"prefix": "ske"
+	},
+	"argumentCollection": {
+		"body": ["argumentCollection = arguments"],
+		"description": "argumentCollection",
+		"prefix": "argumentCollection"
+	},
+	"arguments.": {
+		"body": ["arguments.$1"],
+		"description": "arguments.",
+		"prefix": "arguments."
+	},
+	"assertEqual test assertion": {
+		"body": ["assertEqual(actual, expected$1);"],
+		"description": "assertEqual test assertion",
+		"prefix": "asseq"
+	},
+	"assertSelect test assertion": {
+		"body": ["assertSelect(actual.body, \"$1\");"],
+		"description": "assertSelect test assertion",
+		"prefix": "asssel"
+	},
+	"block comment": {
+		"body": ["/**", " * $1", " */"],
+		"description": "block comment",
+		"prefix": "block"
+	},
+	"cfdump & abort tags": {
+		"body": ["<cfdump var=\"#$1#\">", "<cfabort>"],
+		"description": "cfdump & abort tags",
+		"prefix": "dumptag-abort"
+	},
+	"cfdump tags": {
+		"body": ["<cfdump var=\"#$1#\">"],
+		"description": "cfdump tag",
+		"prefix": "dumptag"
+	},
+	"cfformat-ignore": {
+		"body": ["// cfformat-ignore-start", "", "// cfformat-ignore-end"],
+		"description": "cfformat-ignore",
+		"prefix": "ignore"
+	},
+	"cfml comment": {
+		"body": ["<!--- $1 --->"],
+		"description": "cfml comment",
+		"prefix": "com"
+	},
+	"cftimer": {
+		"body": [
+			"cftimer(label = \"${2}\", type = \"${1|debug,comment,inline,outline|}\") {",
+			"",
+			"}"
+		],
+		"description": "cftimer tag",
+		"prefix": "timer"
+	},
+	"cftimer tag": {
+		"body": [
+			"<cftimer label=\"_1\" type = \"${1|debug,comment,inline,outline|}\">$1</cftimer>"
+		],
+		"description": "cftimer tag",
+		"prefix": "timer-tag"
+	},
+	"console.log": {
+		"body": ["console.log(\"$1\")"],
+		"description": "console.log",
+		"prefix": "log"
+	},
+	"currentUser": {
+		"body": ["currentUser$1"],
+		"description": "currentUser",
+		"prefix": "cur"
+	},
+	"currentUserCan": {
+		"body": ["currentUser.can(\"$1\", \"$2\")"],
+		"description": "currentUser.can()",
+		"prefix": "curcan"
+	},
+	"deserialiseIfJSON": {
+		"body": ["deserialiseIfJSON($1, {})"],
+		"description": "Deserialise if JSON",
+		"prefix": "deserialiseIfJSON"
+	},
+	"filterContacts": {
+		"body": ["currentUser.filterContacts($1)"],
+		"description": "filterContacts",
+		"prefix": "fc"
+	},
+	"distinct filter member function": {
+		"body": [
+			"local.distinctions = {};",
+			"result = qry.filter((r) => {",
+			"\tlocal.distinctionKey = arguments.r.distinct_column_name;",
+			"\tif (StructKeyExists(distinctions, local.distinctionKey)) {",
+			"\t\treturn false;",
+			"\t}",
+			"\tdistinctions[local.distinctionKey] = 1;",
+			"\treturn true;",
+			"});"
+		],
+		"description": "distinct filter member function",
+		"prefix": "filter_member_function_distinct"
+	},
+	"div": {
+		"body": [
+			"<div class=\"row\">",
+			"\t<div class=\"col-xs-12\">",
+			"\t\t$1",
+			"\t</div>",
+			"</div>"
+		],
+		"description": "div tags with bootstrap grid classes",
+		"prefix": "div"
+	},
+	"dump & abort": {
+		"body": ["writeDump(var=$1);", "abort;"],
+		"description": "dump & abort",
+		"prefix": "da"
+	},
+	"dump & die": {
+		"body": ["dd($1)"],
+		"description": "dump and die",
+		"prefix": "dd"
+	},
+	"dump & die hashed": {
+		"body": ["#dd($1"],
+		"description": "dump and die hashed",
+		"prefix": "ddh"
+	},
+	"dump & die tags": {
+		"body": ["<cfset dd($1)>"],
+		"description": "dump and die tags",
+		"prefix": "ddt"
+	},
+	"dump cfscript": {
+		"body": ["writeDump(var=$1, label=\"$1\");"],
+		"description": "dump cfscript",
+		"prefix": "dump"
+	},
+	"filter member function": {
+		"body": [
+			"filter((r) => {",
+			"\treturn arguments.r.$1foo == global.foo;",
+			"});"
+		],
+		"description": "filter member function",
+		"prefix": "filter_member_function"
+	},
+	"map member function": {
+		"body": [
+			"map((value, index, array) => {",
+			"\targuments.r.foo = bar;;",
+			"\treturn arguments;",
+			"});"
+		],
+		"description": "map member function",
+		"prefix": "map_member_function"
+	},
+	"for loop": {
+		"body": ["for ($1) {", "\t$2", "}"],
+		"description": "for loop",
+		"prefix": "for"
+	},
+	"html boilerplate": {
+		"body": [
+			"<!DOCTYPE html>",
+			"<html>",
+			"\t<head>",
+			"\t\t<meta charset=\"UTF-8\">",
+			"\t\t<title>title</title>",
+			"\t</head>",
+			"\t<body>",
+			"\t\t$1",
+			"\t</body>",
+			"</html>"
+		],
+		"description": "html boilerplate",
+		"prefix": "html"
+	},
+	"table boilerplate": {
+		"body": [
+			"<table>",
+			"\t<tr>",
+			"\t\t<th>Firstname</th>",
+			"\t\t<th>Lastname</th>",
+			"\t</tr>",
+			"\t<tr>",
+			"\t\t<td>Jill</td>",
+			"\t\t<td>Smith</td>",
+			"\t</tr>",
+			"</table>"
+		],
+		"description": "table boilerplate",
+		"prefix": "table"
+	},
+	"if else statement": {
+		"body": ["if ($1) {", "\t", "} else {", "\t", "}"],
+		"description": "if else statement",
+		"prefix": "ifelse"
+	},
+	"if elseif statement": {
+		"body": [
+			"if ($1) {",
+			"\t",
+			"} else if ($2) {",
+			"\t",
+			"} else {",
+			"\t",
+			"}"
+		],
+		"description": "if elseif statement",
+		"prefix": "ifelseif"
+	},
+	"if statement": {
+		"body": ["if ($1) {", "\t$2", "}"],
+		"description": "if statement",
+		"prefix": "if"
+	},
+	"init function": {
+		"body": ["public void function init() {", "\t$1", "}"],
+		"description": "init function",
+		"prefix": "init"
+	},
+	"input view helper": {
+		"body": [
+			"#input(",
+			"\tinputType=\"textField$1\",",
+			"\tobjectName=\"\",",
+			"\tproperty=\"\",",
+			"\tlabel=\"\",",
+			"\tcolumns=4",
+			")#"
+		],
+		"description": "input view helper",
+		"prefix": "input-helper"
+	},
+	"isNotEmpty": {
+		"body": ["isNotEmpty($1)"],
+		"description": "isNotEmpty helper function",
+		"prefix": "isNotEmpty"
+	},
+	"linkTo Zenu": {
+		"body": ["#linkTo(text=\"$1\", route=\"$2\")#"],
+		"description": "linkTo with route and text",
+		"prefix": "linkTo-Zenu"
+	},
+	"mock listing": {
+		"body": ["listing = mocker.getListing();"],
+		"description": "mock getlisting",
+		"prefix": "mocklisting"
+	},
+	"mock office": {
+		"body": ["office = mocker.getOffice();"],
+		"description": "mock getoffice",
+		"prefix": "mockoffice"
+	},
+	"mock staff": {
+		"body": ["staff = mocker.getStaff();"],
+		"description": "mock getstaff",
+		"prefix": "mockstaff"
+	},
+	"mock contact": {
+		"body": ["contact = mocker.getContact();"],
+		"description": "mock getcontact",
+		"prefix": "mockcontact"
+	},
+	"upsert": {
+		"body": [
+      "this$1.upsert(",
+      "\tproperties = {",
+      "",
+      "\t},",
+      "\twhere = \"\",",
+      "\tallowUpdate = false",
+      ");"
+		],
+		"description": "model upsert",
+		"prefix": "upsert"
+	},
+	"model component": {
+		"body": [
+			"component extends=\"Model\" output=false {",
+			"",
+			"\tpublic void function config() {",
+			"\t\ttable(\"$1\");",
+			"\t}",
+			"",
+			"}"
+		],
+		"description": "model component",
+		"prefix": "model cfc"
+	},
+	"paramIsPresent": {
+		"body": ["paramIsPresent(\"$1\")"],
+		"description": "paramIsPresent",
+		"prefix": "paramIsPresent"
+	},
+	"paramterize": {
+		"body": ["paramterize = $1,"],
+		"description": "paramterize argument",
+		"prefix": "paramterize"
+	},
+	"private function": {
+		"body": [
+			"/**",
+			" * $1",
+			" *",
+			" * [section: Application]",
+			" * [category: String Functions]",
+			" *",
+			" * @arg1 $2",
+			" * @arg2 $3",
+			" */",
+			"private $4 function $5($6) {",
+			"\t$7",
+			"}"
+		],
+		"description": "private function",
+		"prefix": "priv"
+	},
+	"public function": {
+		"body": [
+			"/**",
+			" * $1",
+			" *",
+			" * [section: Application]",
+			" * [category: String Functions]",
+			" *",
+			" * @arg1 $2",
+			" * @arg2 $3",
+			" */",
+			"public $4 function $5($6) {",
+			"\t$7",
+			"}"
+		],
+		"description": "public function",
+		"prefix": "pub"
+	},
+	"queryExecute": {
+		"body": [
+			"qry = QueryExecute(",
+			"\tsql=\"",
+			"\t\tSELECT *",
+			"\t\tFROM TABLE",
+			"\t\tWHERE column_name = :myval",
+			"\t\",",
+			"\tparams={myval={value=params.myval, type=\"integer\"}},",
+			"\toptions={datasource=get(\"dataSourceName\")}",
+			");"
+		],
+		"description": "queryExecute function",
+		"prefix": "qe"
+	},
+	"querysim": {
+		"body": [
+			"expected = querySim(\"",
+			"\tid , name , phone",
+			"\t1 | bill | 666",
+			"\t2 | ted | -",
+			"\");"
+		],
+		"description": "querysim",
+		"prefix": "querysim"
+	},
+	"resources routes": {
+		"body": [
+			".namespace(module=\"things\")",
+			"\t.resources(name=\"Things\", nested=true)",
+			"\t\t.resource(name=\"Foos\") // requires a thingKey",
+			"\t.end()",
+			"\t.resource(name=\"Bars\") // not specific to a given thing (eg: doesnt require listingKey)",
+			".end()"
+		],
+		"description": "resource style routes",
+		"prefix": "resource-namespace"
+	},
+	"return returnValue": {
+		"body": ["return local.returnValue;"],
+		"description": "return local.returnValue",
+		"prefix": "ret"
+	},
+	"sorter filter member function": {
+		"body": [
+			"sort(\"$1columnname\", \"asc\").filter((r, currentRow) => {",
+			"\treturn arguments.r.foo == global.foo; // && arguments.currentRow == 1",
+			"});"
+		],
+		"description": "filter member function",
+		"prefix": "filter_member_function_sorted"
+	},
+	"splitQueryParamList": {
+		"body": ["splitQueryParamList(\"id\", list)"],
+		"description": "splitQueryParamList function",
+		"prefix": "splitQueryParamList"
+	},
+	"structKeyIsPresent": {
+		"body": ["structValueIsPresent($1, \"$2\")"],
+		"description": "structKeyIsPresent",
+		"prefix": "skip"
+	},
+	"structValueIsPresent": {
+		"body": ["structValueIsPresent($1, \"$2\")"],
+		"description": "structValueIsPresent",
+		"prefix": "svip"
+	},
+	"structValueEquals": {
+		"body": ["structValueEquals($1, \"$2\", \"$3\")"],
+		"description": "structValueEquals",
+		"prefix": "sve"
+	},
+	"test case": {
+		"body": [
+			"function test_$1() {",
+			"\tactual = \"$2\";",
+			"\texpected = \"$3\";",
+			"\tassert(\"actual == expected\");",
+			"}"
+		],
+		"description": "test case",
+		"prefix": "test"
+	},
+	"test case assertion": {
+		"body": ["assert(\"actual == expected$1\");"],
+		"description": "test case assertion",
+		"prefix": "ass"
+	},
+	"test debug": {
+		"body": ["debug(\"$1actual\", true);"],
+		"description": "test case debug",
+		"prefix": "debug"
+	},
+	"test package": {
+		"body": [
+			"component extends=\"tests.Test\" {",
+			"",
+			"\tfunction setup() {",
+			"\t\tsuper.setup();",
+			"\t}",
+			"",
+			"\tfunction teardown() {",
+			"\t\tsuper.teardown();",
+			"\t}",
+			"",
+			"\tfunction test_$1() {",
+			"\t\tactual = \"\";",
+			"\t\texpected = \"\";",
+			"\t\tassert(\"actual == expected\");",
+			"\t}",
+			"}"
+		],
+		"description": "test package",
+		"prefix": "test package"
+	},
+	"test request package": {
+		"body": [
+			"component extends=\"tests.Test\" {",
+			"",
+			"\tfunction setup() {",
+			"\t\tsuper.setup();",
+			"\t\tsuper.mockCurrentUser();",
+			"\t}",
+			"",
+			"\tfunction teardown() {",
+			"\t\tsuper.teardown();",
+			"\t}",
+			"",
+			"\tfunction test_$1() {",
+			"\t\ttransaction {",
+			"\t\t\t// db inserts...",
+			"\t\t\tactual = processRequest(",
+			"\t\t\t\tparams = {",
+			"\t\t\t\t\troute = \"routeName\",",
+			"\t\t\t\t},",
+			"\t\t\t\treturnAs = \"struct\"",
+			"\t\t\t);",
+			"\t\t\ttransactionRollback();",
+			"\t\t}",
+			"\t\texpected = \"/something/#some.key()#\";",
+			"\t\tassert(\"actual.body contains expected\");",
+			"\t}",
+			"}"
+		],
+		"description": "test package",
+		"prefix": "test request package"
+	},
+	"todo comment": {
+		"body": ["// TODO: $1"],
+		"description": "todo comment",
+		"prefix": "todo"
+	},
+	"transaction rollback": {
+		"body": ["transaction {", "\t$1", "\ttransactionRollback();", "}"],
+		"description": "transaction block",
+		"prefix": "transaction"
+	},
+	"transaction rollback with setup": {
+		"body": [
+			"transaction {",
+			"\tthis._setup();",
+			"\t$1",
+			"\ttransactionRollback();",
+			"}"
+		],
+		"description": "transaction block with setup",
+		"prefix": "transactionsetup"
+	},
+	"try catch block": {
+		"body": [
+			"try {",
+			"\t$1",
+			"} catch (any e) {",
+			"\t// model(\"Error\").processException(e);",
+			"\tdump(e.message);",
+			"\tabort;",
+			"}"
+		],
+		"description": "try catch block",
+		"prefix": "try"
+	},
+	"whereify": {
+		"body": ["whereify(local.where$1)"],
+		"description": "whereify",
+		"prefix": "whereify"
+	},
+	"returnValue": {
+		"body": ["local.returnValue = \"$1\";"],
+		"description": "returnValue",
+		"prefix": "returnValue"
+	},
+	"jsoup": {
+		"body": [
+			"doc = Jsoup.parse(actual.body);",
+			"element = doc.select(\"div.class\").first();"
+		],
+		"description": "jsoup",
+		"prefix": "jsoup"
+	}
+}
