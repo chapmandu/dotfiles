@@ -1,7 +1,7 @@
-theme = "tokyonight"
+theme = "sonokai"
 
 [editor]
-line-number = "relative"
+# line-number = "relative"
 bufferline = "multiple"
  
 [editor.cursor-shape]
