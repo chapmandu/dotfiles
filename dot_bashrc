@@ -54,3 +54,9 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # starship terminal prompt
 eval "$(starship init bash)"
+
+# rbenv
+eval "$(/home/adam/.rbenv/bin/rbenv init - bash)"
+
+# linuxbrew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
