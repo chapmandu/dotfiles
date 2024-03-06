@@ -51,6 +51,7 @@ alias gcam="git add . && git commit -m"
 alias gcp="git cherry-pick"
 alias gl="git pull"
 alias gp="git push"
+alias gpf="git push --force-with-lease"
 # alias gd="git diff"
 alias glog="git log --oneline --decorate --color --graph"
 alias glogs="git log --stat --max-count=20" # yes
