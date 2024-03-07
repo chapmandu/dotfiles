@@ -12,6 +12,10 @@ package_upgrade() {
   echo "Update Snaps..."
   sudo snap refresh
   echo "-----------------------------------------------------------------------"
+  echo "Update Brews..."
+  brew update
+  brew upgrade
+  echo "-----------------------------------------------------------------------"
 }
 alias upgrade="package_upgrade"
 
