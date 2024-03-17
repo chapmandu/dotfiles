@@ -233,11 +233,11 @@
   "github-actions.workflows.pinned.refresh.enabled": true,
   "github.copilot.enable": {
     "*": true,
-    "erb": false,
-    "markdown": true,
     "plaintext": true,
-    "ruby": false,
+    "markdown": true,
     "scminput": false,
+    "erb": false,
+    "ruby": true,
     "yaml": true
   },
   "githubPullRequests.defaultMergeMethod": "squash",
@@ -280,7 +280,7 @@
   "terminal.integrated.smoothScrolling": true,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.commandCenter": true,
-  "workbench.colorTheme": "One Monokai",
+  "workbench.colorTheme": "Sonokai",
   "workbench.editor.decorations.badges": true,
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.wrapTabs": true,
@@ -319,6 +319,22 @@
   ],
   "yaml.format.enable": true,
   "yaml.schemas": {
-    "file:///home/adam/.vscode/extensions/atlassian.atlascode-3.0.9/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
-  }
+    "file:///home/adam/.vscode/extensions/atlassian.atlascode-3.0.10/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+  },
+  "[ruby]": {
+    "editor.defaultFormatter": "Shopify.ruby-lsp",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "editor.rulers": [
+      120
+    ],
+    "editor.semanticHighlighting.enabled": true
+  },
+  "window.titleBarStyle": "custom",
+  "security.workspace.trust.untrustedFiles": "open"
 }
