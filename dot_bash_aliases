@@ -75,11 +75,6 @@ alias run='./run'
 alias ded="find . -depth -type d -empty -delete" # delete all empty directories under the current
 alias version="lsb_release -r -s"   # linux version
 
-toggle_vpn() {
-  bash -c 'if [[ -n $(nmcli con show Zenu | grep "VPN connected") ]]; then nmcli con down Zenu; else nmcli con up Zenu; fi'
-}
-alias togglevpn=toggle_vpn
-
 # overrides
 alias cat="batcat"
 alias python="python3"
