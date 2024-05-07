@@ -1,0 +1,21 @@
+inherits = "dracula"
+
+[palette]
+background        = "#161d3b"
+black             = "#0c1024"
+comment           = "#585d9d"
+current_line      = "#44475A75"
+cursorline        = "#1b2451"
+cyan              = "#5EADEB"
+darker            = "#0f142e"
+foreground        = "#b4d1e2"
+green             = "#8EC857" 
+grey              = "#666771" # ?
+indent            = "#161d3b" # ?
+orange            = "#E98E6A" 
+pink              = "#E8D38B" # cyan
+purple            = "#BF77D0" 
+red               = "#C45F53"
+selection         = "#1d2656"
+whitespace        = "#586693" # ?
+yellow            = "#E8D38B"

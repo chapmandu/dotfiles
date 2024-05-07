@@ -1,4 +1,4 @@
-theme = "sonokai"
+theme = "rust-in-peace"
 
 [editor]
 # line-number = "relative"
