@@ -82,3 +82,7 @@ alias python="python3"
 alias activate="source venv/bin/activate"
 
 alias zel="zellij ls && echo '' && echo '> zellij attach [session-name]'"
+
+jira() {
+  xdg-open https://zenusoftware.atlassian.net/browse/$1
+}
