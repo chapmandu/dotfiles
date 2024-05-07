@@ -148,7 +148,6 @@
   "breadcrumbs.enabled": true,
   "cfml.definition.userFunctions.search.enable": true,
   "cfml.engine.name": "lucee",
-  "cfml.indexComponents.enable": false,
   "cfml.suggest.globalFunctions.firstLetterCase": "upper",
   "debug.toolBarLocation": "commandCenter",
   "editor.acceptSuggestionOnEnter": "on",
@@ -280,7 +279,6 @@
   "terminal.integrated.smoothScrolling": true,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.commandCenter": true,
-  "workbench.colorTheme": "Sonokai",
   "workbench.editor.decorations.badges": true,
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.wrapTabs": true,
@@ -336,5 +334,23 @@
     "editor.semanticHighlighting.enabled": true
   },
   "window.titleBarStyle": "custom",
-  "security.workspace.trust.untrustedFiles": "open"
+  "security.workspace.trust.untrustedFiles": "open",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "workbench.colorTheme": "Rust in Peace",
+  "sorbet.enabled": true,
+  "security.promptForLocalFileProtocolHandling": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    "\\bclass:\\s*'([^']*)'",
+    "\\bclass:\\s*\"([^\"]*)\""
+  ],
+  "tailwindCSS.includeLanguages": {
+    "html.erb": "html",
+    ".cfm": "html"
+  }
 }

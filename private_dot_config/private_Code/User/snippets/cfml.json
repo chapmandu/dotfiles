@@ -283,11 +283,6 @@
 		"description": "input view helper",
 		"prefix": "input-helper"
 	},
-	"isNotEmpty": {
-		"body": ["isNotEmpty($1)"],
-		"description": "isNotEmpty helper function",
-		"prefix": "isNotEmpty"
-	},
 	"linkTo Zenu": {
 		"body": ["#linkTo(text=\"$1\", route=\"$2\")#"],
 		"description": "linkTo with route and text",
