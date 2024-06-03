@@ -49,8 +49,8 @@
     }
   ],
   "atlascode.jira.lastCreateSiteAndProject": {
-    "projectKey": "",
-    "siteId": ""
+    "siteId": "",
+    "projectKey": ""
   },
   "auto-close-tag.activationOnLanguage": [
     "html",
@@ -352,5 +352,15 @@
   "tailwindCSS.includeLanguages": {
     "html.erb": "html",
     ".cfm": "html"
-  }
+  },
+  "rubyLsp.rubyVersionManager": {
+    "identifier": "asdf"
+  },
+  "cfml.indexComponents.enable": false,
+  "rubyLsp.rubyExecutablePath": "/home/adam/.asdf/shims/ruby",
+  "rubyLsp.enableExperimentalFeatures": false,
+  "workbench.activityBar.location": "bottom",
+  "window.customTitleBarVisibility": "auto",
+  "workbench.editor.showTabs": "single",
+  "github.copilot.editor.enableAutoCompletions": true
 }
