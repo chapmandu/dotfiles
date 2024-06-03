@@ -25,19 +25,15 @@ layout {
             }
         }
     }
-    tab name="hx" cwd="/home/adam/code/ruby/bigpsin" {
-        pane
+    tab name="Git" {
+        pane {
+            cwd "/home/adam/code/alcatraz/www/zenu"
+            command "lazygit"
+        }
     }
-    tab name="bigpsin" {
-        pane split_direction="vertical" {
-            pane focus=true {
-                cwd "/home/adam/code/ruby/bigspin"
-                command "./bin/dev"
-                start_suspended true
-            }
-            pane {
-                cwd "/home/adam/code/ruby/bigspin"
-            }
+    tab name="Docker" {
+        pane {
+            command "lazydocker"
         }
     }
     tab name="tut" {
@@ -46,10 +42,4 @@ layout {
             args "--tutor"
         }
     }
-    // tab name="hx" cwd="www/zenu" {
-    //     pane command="nnn" focus=true {
-    //         start_suspended false
-    //         args "-n"
-    //     }
-    // }
 }
