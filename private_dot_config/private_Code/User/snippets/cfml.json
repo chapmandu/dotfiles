@@ -152,11 +152,7 @@
 	},
 	"div": {
 		"body": [
-			"<div class=\"row\">",
-			"\t<div class=\"col-xs-12\">",
-			"\t\t$1",
-			"\t</div>",
-			"</div>"
+			"<div class=\"$1\">$2</div>"
 		],
 		"description": "div tags with bootstrap grid classes",
 		"prefix": "div"
@@ -438,17 +434,17 @@
 		"prefix": "splitQueryParamList"
 	},
 	"structKeyIsPresent": {
-		"body": ["structValueIsPresent($1, \"$2\")"],
+		"body": ["utils.Struct::valueIsPresent($1, \"$2\")"],
 		"description": "structKeyIsPresent",
 		"prefix": "skip"
 	},
-	"structValueIsPresent": {
-		"body": ["structValueIsPresent($1, \"$2\")"],
-		"description": "structValueIsPresent",
+	"structValueIsBlank": {
+		"body": ["utils.Struct::valueIsBlank($1, \"$2\")"],
+		"description": "structValueIsBlank",
 		"prefix": "svip"
 	},
 	"structValueEquals": {
-		"body": ["structValueEquals($1, \"$2\", \"$3\")"],
+		"body": ["utils.Struct::valueEquals($1, \"$2\", \"$3\")"],
 		"description": "structValueEquals",
 		"prefix": "sve"
 	},
@@ -566,10 +562,15 @@
 		"description": "whereify",
 		"prefix": "whereify"
 	},
-	"returnValue": {
-		"body": ["local.returnValue = \"$1\";"],
-		"description": "returnValue",
-		"prefix": "returnValue"
+	"this": {
+		"body": ["this.$1"],
+		"description": "this",
+		"prefix": "this"
+	},
+	"variables": {
+		"body": ["variables.$1"],
+		"description": "variables",
+		"prefix": "variables"
 	},
 	"jsoup": {
 		"body": [
