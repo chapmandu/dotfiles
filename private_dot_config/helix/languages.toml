@@ -1,35 +1,73 @@
-[[language]]
-name = "python"
-language-servers = [ "pyright", "ruff" ]
+# introduce new language server
+[language-server.scls]
+command = "simple-completion-language-server"
 
-[language-server.pyright.config.python.analysis]
-typeCheckingMode = "basic"
-
-[language-server.ruff]
-command = "ruff-lsp"
-
-[language-server.ruff.config.settings]
-args = ["--ignore", "E501"]
-
-[language.formatter]
-command = "black"
-args = ["--line-length", "88", "--quiet", "-"]
-
-[[language]]
-name = "java"
-file-types = ["cfc"]
-
-[[language]]
-name = "ruby"
-language-servers = [ "solargraph" ]
-auto-format = true
+[language-server.scls.config]
+max_completion_items = 20     # set max completion results len for each group: words, snippets, unicode-input
+snippets_first = true         # completions will return before snippets by default
+feature_words = true          # enable completion by word
+feature_snippets = true       # enable snippets
+feature_unicode_input = true  # enable "unicode input"
+feature_paths = true          # enable path completion
 
 [[language]]
 name = "javascript"
 auto-format = true
-formatter = { command = "npx prettier", args = ["--write"] }
+formatter = { command = "prettier", args = ["--write"] }
 
 [[language]]
 name = "typescript"
 auto-format = true
-formatter = { command = "npx prettier", args = ["--write"] }
+language-servers = [ "typescript-language-server", "scls" ]
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+
+[[language]]
+name = "astro"
+scope = "source.astro"
+injection-regex = "astro"
+file-types = ["astro"]
+language-servers = ["astro-ls"]
+# formatter = { command = "prettier", args = ["--plugin", "prettier-plugin-astro", "--parser", "astro"] }
+auto-format = true
+
+[[language]]
+name = "vue"
+auto-format = false
+# formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+
+[[language]]
+name = "html"
+file-types = [ "html", "eta" ]
+auto-format = true
+
+[[language]]
+name = "coldfusion"
+file-types = [ "cfc" ]
+scope = "source.coldfusion"
+roots = [ "box.json" ]
+language-servers = [ "scls" ]
+grammar = "java"
+indent = { tab-width = 2, unit = "\t" }
+
+[[language]]
+name = "cfml"
+file-types = [ "cfm" ]
+scope = "source.cfml"
+roots = [ "box.json" ]
+grammar = "php"
+indent = { tab-width = 2, unit = "\t" }
+
+[[language]]
+name = "sql"
+file-types = [ "sql" ]
+
+# temp.. until the above are working
+[[language]]
+name = "java"
+file-types = [ "cfc" ]
+indent = { tab-width = 2, unit = "\t" }
+
+[[language]]
+name = "php"
+file-types = [ "cfm" ]
+indent = { tab-width = 2, unit = "\t" }
