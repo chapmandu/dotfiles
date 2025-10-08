@@ -1,7 +1,7 @@
-theme = "rust-in-peace"
+theme = "tokyonight"
 
 [editor]
-# line-number = "relative"
+line-number = "relative"
 bufferline = "multiple"
  
 [editor.cursor-shape]
@@ -21,7 +21,21 @@ display-messages = true
  
 [keys.normal]
 esc = ["collapse_selection", "keep_primary_selection"]
- 
-[keys.insert.j]
-k = "normal_mode"
+"S-l" = "goto_next_buffer"
+"S-h" = "goto_previous_buffer"
+"C-s" = ":w"
+"ret" = ["open_below", "normal_mode"]
+# move lines up/down
+"C-k" = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+"C-j" = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 
+[keys.insert]
+j = { k = "normal_mode" }
+left = "no_op"
+right = "no_op"
+up = "no_op"
+down = "no_op"
+
+[keys.normal.space]
+# copy current file path to system clipboard
+"C-f" = "copy_between_registers"
