@@ -1,88 +1,101 @@
 package_upgrade() {
-  echo "-----------------------------------------------------------------------"
-  sudo apt update
-  apt list --upgradable
-  sudo apt upgrade -y
-  sudo apt autoclean
-  sudo apt autoremove -y
-  echo "-----------------------------------------------------------------------"
-  echo "Update Flatpaks..."
-  sudo flatpak update -y
-  echo "-----------------------------------------------------------------------"
-  echo "Update Snaps..."
-  sudo snap refresh
-  echo "-----------------------------------------------------------------------"
-  echo "Update Brews..."
-  brew update
-  brew upgrade
-  echo "-----------------------------------------------------------------------"
+	echo "-----------------------------------------------------------------------"
+	sudo apt update
+	apt list --upgradable
+	sudo apt upgrade -y
+	sudo apt autoclean
+	sudo apt autoremove -y
+	echo "-----------------------------------------------------------------------"
+	echo "Update Flatpaks..."
+	sudo flatpak update -y
+	echo "-----------------------------------------------------------------------"
+	echo "Update Snaps..."
+	sudo snap refresh
+	echo "-----------------------------------------------------------------------"
 }
 alias upgrade="package_upgrade"
 
+# git aliases (run once in terminal)
+# git config --global alias.co checkout
+# git config --global alias.br branch
+# git config --global alias.ci commit
+# git config --global alias.st status
+
 # git shortcuts
+alias g='git'
+alias gcm='git commit -m'
+alias gcam='git commit -a -m'
+alias gcad='git commit -a --amend'
 alias st='git status'
 alias dif='git diff'
-alias dev='git switch develop'
 alias rel='git switch release'
 alias prod='git switch production'
-alias prog='git add . && git commit -m "progress commit"'
+alias prog='git add . && git commit -m "~ WIP ~"'
 alias undo='git reset --soft HEAD~1'
+alias gb="git --no-pager branch"
+alias gco="git checkout"
+alias gc="git commit -m"
+alias gcp="git cherry-pick"
+alias gl="git pull"
+alias gp="git push"
+alias gpf="git push --force-with-lease"
+alias glog="git log --oneline --decorate --color --graph"
+alias stash="git stash"
+alias pop="git stash pop"
 
 # prune local tracking branches that do codenot exist on remote
 prune_tracking_branches() {
-  git fetch --prune
-  git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -D
+	git fetch --prune
+	git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -D
 }
 
 # returns a git log between 2 origin branches.. great for checking what will be deployed
 # usage:  'commits develop release'
 #         'commits develop release [long] # actually any 3rd arg will return long format
 _commits() {
-  if [ -z "$3" ]; then
-    local format="%C(white)%s%x09%C(blue)%an"
-  else
-    local format="%C(white)%s%x09%C(blue)%an%x09%C(yellow)%ad%x09%C(green)%h"
-  fi
-  git log --decorate --no-merges --abbrev-commit --date-order --reverse --pretty=format:"$format" origin/$2..origin/$1
+	if [ -z "$3" ]; then
+		local format="%C(white)%s%x09%C(blue)%an"
+	else
+		local format="%C(white)%s%x09%C(blue)%an%x09%C(yellow)%ad%x09%C(green)%h"
+	fi
+	git log --decorate --no-merges --abbrev-commit --date-order --reverse --pretty=format:"$format" origin/$2..origin/$1
 }
 alias commits="_commits"
 
-# ohmyzsh git style aliases for bash
-alias gb="git --no-pager branch"
-alias gco="git checkout"
-# alias gc="git commit -m"
-alias gcam="git add . && git commit -m"
-alias gcp="git cherry-pick"
-alias gl="git pull"
-alias gp="git push"
-alias gpf="git push --force-with-lease"
-# alias gd="git diff"
-alias glog="git log --oneline --decorate --color --graph"
-alias glogs="git log --stat --max-count=20" # yes
-# alias grhh="git reset HEAD --hard"
-alias stash="git stash"
-alias pop="git stash pop"
-
 killbranch() {
-  gp -d origin $1
-  gb -D $1
+	gp -d origin $1
+	gb -D $1
 }
 
 # shorten the run script call
 alias run='./run'
+alias pui="npx playwright test --ui"
 
 # utils
 alias ded="find . -depth -type d -empty -delete" # delete all empty directories under the current
-alias version="lsb_release -r -s"   # linux version
+alias version="lsb_release -r -s"                # linux version
 
 # overrides
-alias cat="batcat"
+alias bat="batcat"
 alias python="python3"
+alias mailhog="~/go/bin/MailHog"
 
 alias activate="source venv/bin/activate"
 
-alias zel="zellij ls && echo '' && echo '> zellij attach [session-name]'"
-
 jira() {
-  xdg-open https://zenusoftware.atlassian.net/browse/$1
+	xdg-open https://zenusoftware.atlassian.net/browse/$1
 }
+
+# experimental
+alias c="clear"
+alias ..='cd ..'                                  # Go up one directory
+alias l.="ls -d .* --color=auto"                  # List hidden files
+alias now='date +%T'                              # Display current time
+alias ports='ss -tulpn'                           # List listening ports
+alias trash='mv --force -t ~/.local/share/Trash ' # Move a file to the trash (e.g. trash file.txt)
+
+alias ls='eza -lh --group-directories-first --icons'
+alias lt='eza --tree --level=2 --long --icons --git'
+alias ff="fzf --preview 'batcat --style=numbers --color=always {}'"
+alias bat='batcat'
+eval "$(zoxide init bash)"
