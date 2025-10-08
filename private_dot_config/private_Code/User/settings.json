@@ -1,4 +1,55 @@
 {
+
+  // Terminal Configuration
+    "terminal.integrated.defaultLocation": "view",
+    "terminal.integrated.tabs.enabled": true,
+    "terminal.integrated.shellIntegration.enabled": true,
+    "terminal.integrated.stickyScroll.enabled": true,
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.lineHeight": 1.2,
+    "terminal.integrated.scrollback": 10000,
+
+    // Panel Configuration
+    "workbench.panel.defaultLocation": "bottom",
+    "workbench.panel.opensMaximized": "never",
+    "workbench.panelSize": 400,
+
+    // Layout Optimization
+    "workbench.editor.splitInGroupLayout": "vertical",
+    "workbench.startupEditor": "readme",
+    "explorer.compactFolders": false,
+
+    // Problems Panel Integration
+    "problems.visibility": true,
+    "problems.showCurrentInStatus": true,
+
+    // Output Panel
+    "output.smartScroll.enabled": true,
+
+    // Editor Optimization
+    "editor.minimap.enabled": false,
+    "breadcrumbs.enabled": true,
+    "editor.stickyScroll.enabled": true,
+
+    // Window Management
+    "window.restoreWindows": "folders",
+    "workbench.editor.revealIfOpen": true,
+
+    // Claude Code specific terminal behavior
+    "terminal.integrated.cwd": "${workspaceFolder}",
+    "terminal.integrated.env.linux": {
+      "CLAUDE_PROJECT": "${workspaceFolderBasename}"
+    },
+
+
+
+
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[dockerfile]": {
+    "editor.defaultFormatter": "docker.docker"
+  },
   "[go]": {
     "editor.suggest.snippetsPreventQuickSuggestions": false
   },
@@ -8,25 +59,28 @@
   "[java]": {
     "editor.formatOnSave": true
   },
+  "[handlebars]": {
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "[python]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll": "explicit",
-      "source.organizeImports": "explicit"
-    },
-    "editor.defaultFormatter": "charliermarsh.ruff",
-    "editor.formatOnSave": true,
-    "editor.insertSpaces": true,
-    "editor.semanticHighlighting.enabled": true,
-    "editor.tabSize": 2
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "[rust]": {
+  "[makefile]": {
     "editor.formatOnSave": true
   },
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
   "[typescript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "editor.formatOnSave": true
   },
   "[xml]": {
     "editor.defaultFormatter": "redhat.vscode-xml"
@@ -49,8 +103,8 @@
     }
   ],
   "atlascode.jira.lastCreateSiteAndProject": {
-    "siteId": "",
-    "projectKey": ""
+    "projectKey": "",
+    "siteId": ""
   },
   "auto-close-tag.activationOnLanguage": [
     "html",
@@ -68,7 +122,6 @@
     "markdown",
     "razor",
     "vue",
-    "cfml",
     "lang-cfml",
     "erb",
     "html.erb"
@@ -90,65 +143,8 @@
     "source",
     "track",
     "wbr",
-    "cfabort",
-    "cfparam",
-    "cfset",
-    "cfparam",
-    "cfdirectory",
-    "cffile",
-    "cfdump",
-    "cfelse",
-    "cfelseif",
-    "cfreturn",
-    "cfdump",
-    "cfapplication",
-    "cfargument",
-    "cfassociate",
-    "cfbreak",
-    "cfchartdata",
-    "cfcollection",
-    "cfcontent",
-    "cfcontinue",
-    "cfcookie",
-    "cferror",
-    "cfexecute",
-    "cfexit",
-    "cfflush",
-    "cfheader",
-    "cfhttpparam",
-    "cfimage",
-    "cfimport",
-    "cfinclude",
-    "cfindex",
-    "cfinput",
-    "cfinvokeargument",
-    "cflocation",
-    "cflog",
-    "cfloginuser",
-    "cflogout",
-    "cfmailparam",
-    "cfobject",
-    "cfobjectcache",
-    "cfpop",
-    "cfprocessingdirective",
-    "cfprocparam",
-    "cfprocresult",
-    "cfproperty",
-    "cfqueryparam",
-    "cfregistry",
-    "cfreportparam",
-    "cfrethrow",
-    "cfschedule",
-    "cfsearch",
-    "cfsetting",
-    "cfthrow",
-    "cfwddx",
-    "cfspreadsheet"
   ],
-  "breadcrumbs.enabled": true,
-  "cfml.definition.userFunctions.search.enable": true,
-  "cfml.engine.name": "lucee",
-  "cfml.suggest.globalFunctions.firstLetterCase": "upper",
+  "aws.telemetry": false,
   "debug.toolBarLocation": "commandCenter",
   "editor.acceptSuggestionOnEnter": "on",
   "editor.autoIndent": "advanced",
@@ -159,9 +155,10 @@
   "editor.find.seedSearchStringFromSelection": "always",
   "editor.fontFamily": "'Hack Nerd Font Mono', monospace",
   "editor.fontLigatures": false,
+  "editor.fontSize": 13,
   "editor.guides.bracketPairs": true,
+  "editor.inlineSuggest.edits.showCollapsed": true,
   "editor.inlineSuggest.enabled": true,
-  "editor.minimap.enabled": false,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.renderControlCharacters": false,
   "editor.renderWhitespace": "all",
@@ -170,7 +167,6 @@
   ],
   "editor.showFoldingControls": "always",
   "editor.snippetSuggestions": "top",
-  "editor.stickyScroll.enabled": true,
   "editor.suggest.localityBonus": true,
   "editor.suggest.preview": true,
   "editor.suggest.showKeywords": false,
@@ -180,7 +176,6 @@
   "editor.tabSize": 2,
   "editor.wordWrap": "off",
   "emmet.includeLanguages": {
-    "cfml": "html",
     "javascript": "javascriptreact",
     "lang-cfml": "html",
     "vue": "html"
@@ -188,32 +183,28 @@
   "emmet.showExpandedAbbreviation": "never",
   "emmet.showSuggestionsAsSnippets": true,
   "emmet.syntaxProfiles": {
-    "cfml": "html",
     "lang-cfml": "html",
     "vue": "html"
   },
   "emmet.triggerExpansionOnTab": true,
-  "explorer.compactFolders": false,
   "extensions.ignoreRecommendations": false,
   "files.associations": {
-    "*.cfc": "cfml",
-    "*.cfm": "cfml",
-    "*.config": "yaml",
     ".cflintrc": "json",
-    ".zsh*": "shellscript"
+    ".zsh*": "shellscript",
+    "*.config": "yaml"
   },
   "files.autoSave": "off",
   "files.autoSaveDelay": 10000,
   "files.encoding": "utf8",
   "files.exclude": {
+    "**/__init__.py": {
+      "when": "$(basename).py"
+    },
+    "**/__pycache__": true,
     "**/.classpath": true,
     "**/.factorypath": true,
     "**/.project": true,
-    "**/.settings": true,
-    "**/__pycache__": true,
-    "**/__init__.py": {
-      "when": "$(basename).py"
-    }
+    "**/.settings": true
   },
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
@@ -230,35 +221,47 @@
   "git.openRepositoryInParentFolders": "never",
   "git.rebaseWhenSync": true,
   "github-actions.workflows.pinned.refresh.enabled": true,
+  "github.copilot.chat.agent.thinkingTool": true,
+  "github.copilot.chat.languageContext.fix.typescript.enabled": true,
+  "github.copilot.chat.languageContext.inline.typescript.enabled": true,
+  "github.copilot.chat.languageContext.typescript.enabled": true,
+  "github.copilot.editor.enableAutoCompletions": true,
   "github.copilot.enable": {
-    "*": true,
+    "*": false,
     "plaintext": true,
     "markdown": true,
     "scminput": false,
     "erb": false,
     "ruby": true,
-    "yaml": true
+    "yaml": true,
+    "cfml": false
   },
+  "github.copilot.nextEditSuggestions.enabled": true,
   "githubPullRequests.defaultMergeMethod": "squash",
   "githubPullRequests.pullBranch": "never",
   "githubPullRequests.terminalLinksHandler": "github",
   "gitlens.codeLens.authors.enabled": false,
   "gitlens.codeLens.recentChange.enabled": false,
-  "javascript.format.enable": false,
+  "javascript.format.enable": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "javascript.validate.enable": false,
+  "javascript.validate.enable": true,
   "markdown.editor.pasteUrlAsFormattedLink.enabled": "smart",
-  "markdown.updateLinksOnFileMove.enabled": "prompt",
+  "markdown.updateLinksOnFileMove.enabled": "always",
   "mergeEditor.diffAlgorithm": "advanced",
   "npm.enableRunFromFolder": true,
   "outline.showVariables": false,
   "php.suggest.basic": false,
   "playwright.reuseBrowser": true,
+  "prettier.bracketSpacing": false,
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
   "projectManager.git.baseFolders": [
     "~/code"
   ],
+  "projectManager.git.maxDepthRecursion": 3,
+  "projectManager.openInCurrentWindowIfEmpty": "never",
+  "projectManager.sortList": "Recent",
   "redhat.telemetry.enabled": false,
-  "ruff.showNotifications": "always",
   "scm.providerCountBadge": "auto",
   "search.exclude": {
     "**/bower_components": true,
@@ -270,22 +273,32 @@
     "temp": true,
     "WEB-INF": true
   },
+  "security.promptForLocalFileProtocolHandling": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "tailwindCSS.experimental.classRegex": [
+    "\\bclass:\\s*'([^']*)'",
+    "\\bclass:\\s*\"([^\"]*)\""
+  ],
+  "tailwindCSS.includeLanguages": {
+    "handlebars": "html",
+  },
   "task.slowProviderWarning": [
     "npm"
   ],
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.cursorStyle": "line",
-  "terminal.integrated.lineHeight": 1.2,
   "terminal.integrated.smoothScrolling": true,
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "typescript.updateImportsOnFileMove.enabled": "always",
   "window.commandCenter": true,
+  "window.customTitleBarVisibility": "auto",
+  "workbench.colorTheme": "One Monokai",
   "workbench.editor.decorations.badges": true,
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.wrapTabs": true,
   "workbench.editorAssociations": {
     "*.class": "default"
   },
-  "workbench.startupEditor": "newUntitledFile",
+  "workbench.iconTheme": "vscode-icons",
   "yaml.customTags": [
     "!And",
     "!And sequence",
@@ -315,52 +328,32 @@
     "!Split",
     "!Split sequence"
   ],
+  "yaml.format.bracketSpacing": false,
   "yaml.format.enable": true,
   "yaml.schemas": {
-    "file:///home/adam/.vscode/extensions/atlassian.atlascode-3.0.10/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    "file:///home/adam/.vscode/extensions/atlassian.atlascode-3.8.20/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
-  "[ruby]": {
-    "editor.defaultFormatter": "Shopify.ruby-lsp",
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "editor.tabSize": 2,
+  "headwind.classRegex": {
+    "html": "\\bclass\\s*=\\s*[\\\"\\']([_a-zA-Z0-9\\s\\-\\:\\/]+)[\\\"\\']",
+    "css": "\\B@apply\\s+([_a-zA-Z0-9\\s\\-\\:\\/]+);",
+    "javascript": "(?:\\bclassName\\s*=\\s*[\\\"\\']([_a-zA-Z0-9\\s\\-\\:\\/]+)[\\\"\\'])|(?:\\btw\\s*`([_a-zA-Z0-9\\s\\-\\:\\/]*)`)",
+    "javascriptreact": "(?:\\bclassName\\s*=\\s*[\\\"\\']([_a-zA-Z0-9\\s\\-\\:\\/]+)[\\\"\\'])|(?:\\btw\\s*`([_a-zA-Z0-9\\s\\-\\:\\/]*)`)",
+    "typescript": "(?:\\bclassName\\s*=\\s*[\\\"\\']([_a-zA-Z0-9\\s\\-\\:\\/]+)[\\\"\\'])|(?:\\btw\\s*`([_a-zA-Z0-9\\s\\-\\:\\/]*)`)",
+    "typescriptreact": "(?:\\bclassName\\s*=\\s*[\\\"\\']([_a-zA-Z0-9\\s\\-\\:\\/]+)[\\\"\\'])|(?:\\btw\\s*`([_a-zA-Z0-9\\s\\-\\:\\/]*)`)",
+    "handlebars": "\\bclass\\s*=\\s*[\\\"\\']([_a-zA-Z0-9\\s\\-\\:\\/]+)[\\\"\\']"
+  },
+  "docker.extension.enableComposeLanguageServer": false,
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[dockercompose]": {
     "editor.insertSpaces": true,
-    "files.trimTrailingWhitespace": true,
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
-    "editor.rulers": [
-      120
-    ],
-    "editor.semanticHighlighting.enabled": true
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.defaultFormatter": "redhat.vscode-yaml"
   },
-  "window.titleBarStyle": "custom",
-  "security.workspace.trust.untrustedFiles": "open",
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "workbench.colorTheme": "Rust in Peace",
-  "sorbet.enabled": true,
-  "security.promptForLocalFileProtocolHandling": false,
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "tailwindCSS.experimental.classRegex": [
-    "\\bclass:\\s*'([^']*)'",
-    "\\bclass:\\s*\"([^\"]*)\""
-  ],
-  "tailwindCSS.includeLanguages": {
-    "html.erb": "html",
-    ".cfm": "html"
-  },
-  "rubyLsp.rubyVersionManager": {
-    "identifier": "asdf"
-  },
-  "cfml.indexComponents.enable": false,
-  "rubyLsp.rubyExecutablePath": "/home/adam/.asdf/shims/ruby",
-  "rubyLsp.enableExperimentalFeatures": false,
-  "workbench.activityBar.location": "bottom",
-  "window.customTitleBarVisibility": "auto",
-  "workbench.editor.showTabs": "single",
-  "github.copilot.editor.enableAutoCompletions": true
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  }
+
 }
