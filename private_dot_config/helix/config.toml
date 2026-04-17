@@ -1,4 +1,4 @@
-theme = "tokyonight"
+theme = "dracula"
 
 [editor]
 line-number = "relative"
@@ -18,6 +18,9 @@ hidden = false
 
 [editor.lsp]
 display-messages = true
+
+[editor.soft-wrap]
+enable = true
  
 [keys.normal]
 esc = ["collapse_selection", "keep_primary_selection"]
@@ -29,13 +32,23 @@ esc = ["collapse_selection", "keep_primary_selection"]
 "C-k" = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
 "C-j" = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 
+[keys.normal.space]
+# copy current file path to system clipboard
+"C-f" = ":sh echo -n %{buffer_name} | wl-copy -n"
+
+# git
+[keys.normal.space.t]
+b = ":sh git show --no-patch --format='%%h (%%an: %%ar): %%s' $(git blame -p %{buffer_name} -L%{cursor_line},+1 | head -1 | cut -d' ' -f1)"
+c = ":sh git blame -L %{cursor_line},%{cursor_line} %{buffer_name} | awk '{print $1}' | xclip -selection clipboard"
+# Space + B + f: Show full file blame (useful for context)
+f = ":sh git blame %{buffer_name}"
+
+[keys.normal.space.i]
+o = ':lsp-workspace-command _typescript.organizeImports [{"file":"%{buffer_name}"}]'
+
 [keys.insert]
 j = { k = "normal_mode" }
 left = "no_op"
 right = "no_op"
 up = "no_op"
 down = "no_op"
-
-[keys.normal.space]
-# copy current file path to system clipboard
-"C-f" = "copy_between_registers"

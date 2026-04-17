@@ -10,6 +10,21 @@ feature_snippets = true       # enable snippets
 feature_unicode_input = true  # enable "unicode input"
 feature_paths = true          # enable path completion
 
+[language-server.eslint]
+command = "vscode-eslint-language-server"
+args = ["--stdio"]
+
+[language-server.eslint.config]
+validate = "on"
+rulesCustomizations = []
+run = "onType"
+nodePath = ""
+quiet = false
+experimental = { useFlatConfig = true }
+codeAction = { disableRuleComment = { enable = true, location = "separateLine" }, showDocumentation = { enable = true } }
+problems = { shortenToSingleLine = false }
+codeActionsOnSave = { mode = "all", "source.fixAll.eslint" = true }
+
 [[language]]
 name = "javascript"
 auto-format = true
@@ -18,7 +33,7 @@ formatter = { command = "prettier", args = ["--write"] }
 [[language]]
 name = "typescript"
 auto-format = true
-language-servers = [ "typescript-language-server", "scls" ]
+language-servers = [ "typescript-language-server", "eslint" ]
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 
 [[language]]
@@ -36,38 +51,43 @@ auto-format = false
 # formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 
 [[language]]
-name = "html"
-file-types = [ "html", "eta" ]
-auto-format = true
-
-[[language]]
-name = "coldfusion"
-file-types = [ "cfc" ]
-scope = "source.coldfusion"
-roots = [ "box.json" ]
+name = "htmldjango"
+file-types = ["eta"]
 language-servers = [ "scls" ]
-grammar = "java"
-indent = { tab-width = 2, unit = "\t" }
+indent = { unit = "  ", tab-width = 2 }
+formatter = { command = "prettier", args = ["--stdin-filepath", "file.eta"] }
+
+# [[language]]
+# name = "coldfusion"
+# file-types = [ "cfc" ]
+# scope = "source.coldfusion"
+# roots = [ "box.json" ]
+# language-servers = [ "scls" ]
+# grammar = "java"
+# indent = { tab-width = 2, unit = "\t" }
+
+# [[language]]
+# name = "cfml"
+# file-types = [ "cfm" ]
+# scope = "source.cfml"
+# roots = [ "box.json" ]
+# grammar = "php"
+# indent = { tab-width = 2, unit = "\t" }
 
 [[language]]
 name = "cfml"
-file-types = [ "cfm" ]
 scope = "source.cfml"
-roots = [ "box.json" ]
-grammar = "php"
+language-servers = [ "scls" ]
+file-types = ["cfm", "cfml", "cfc"]
+comment-token = "<!---"
 indent = { tab-width = 2, unit = "\t" }
+
+[[grammar]]
+name = "cfml"
+# source = { git = "https://github.com/JoshShanley/tree-sitter-cfml", rev = "main" }
+source = { path = "/home/adam/code/tree-sitter-cfml" }
 
 [[language]]
 name = "sql"
 file-types = [ "sql" ]
 
-# temp.. until the above are working
-[[language]]
-name = "java"
-file-types = [ "cfc" ]
-indent = { tab-width = 2, unit = "\t" }
-
-[[language]]
-name = "php"
-file-types = [ "cfm" ]
-indent = { tab-width = 2, unit = "\t" }
