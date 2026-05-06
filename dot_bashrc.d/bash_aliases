@@ -1,20 +1,3 @@
-package_upgrade() {
-	echo "-----------------------------------------------------------------------"
-	sudo apt update
-	apt list --upgradable
-	sudo apt upgrade -y
-	sudo apt autoclean
-	sudo apt autoremove -y
-	echo "-----------------------------------------------------------------------"
-	echo "Update Flatpaks..."
-	sudo flatpak update -y
-	echo "-----------------------------------------------------------------------"
-	echo "Update Snaps..."
-	sudo snap refresh
-	echo "-----------------------------------------------------------------------"
-}
-alias upgrade="package_upgrade"
-
 # git aliases (run once in terminal)
 # git config --global alias.co checkout
 # git config --global alias.br branch
@@ -62,13 +45,7 @@ _commits() {
 }
 alias commits="_commits"
 
-killbranch() {
-	gp -d origin $1
-	gb -D $1
-}
-
 # shorten the run script call
-alias run='./run'
 alias pui="npx playwright test --ui"
 
 # utils
@@ -76,7 +53,12 @@ alias ded="find . -depth -type d -empty -delete" # delete all empty directories 
 alias version="lsb_release -r -s"                # linux version
 
 # overrides
-alias bat="batcat"
+alias rm="rm -i"
+alias mv="mv -i"
+alias cp="cp -i"
+alias ls='eza -lh --group-directories-first --icons'
+alias cat='bat'
+alias tree='eza --tree --level=2 --long --icons --git'
 alias python="python3"
 alias mailhog="~/go/bin/MailHog"
 
@@ -87,15 +69,10 @@ jira() {
 }
 
 # experimental
-alias c="clear"
 alias ..='cd ..'                                  # Go up one directory
 alias l.="ls -d .* --color=auto"                  # List hidden files
 alias now='date +%T'                              # Display current time
 alias ports='ss -tulpn'                           # List listening ports
 alias trash='mv --force -t ~/.local/share/Trash ' # Move a file to the trash (e.g. trash file.txt)
 
-alias ls='eza -lh --group-directories-first --icons'
-alias lt='eza --tree --level=2 --long --icons --git'
-alias ff="fzf --preview 'batcat --style=numbers --color=always {}'"
-alias bat='batcat'
 eval "$(zoxide init bash)"

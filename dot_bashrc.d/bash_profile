@@ -1,0 +1,12 @@
+export EDITOR="hx"
+
+# enable partial history completion
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+
+# VSCODE Shell integration
+[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path bash)"
+
+eval "$(starship init bash)"
+eval "$(zoxide init bash)"
+eval "$(mise activate bash)"
