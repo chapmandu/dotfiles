@@ -44,7 +44,7 @@ c = ":sh git blame -L %{cursor_line},%{cursor_line} %{buffer_name} | awk '{print
 f = ":sh git blame %{buffer_name}"
 
 [keys.normal.space.i]
-o = ':lsp-workspace-command _typescript.organizeImports [{"file":"%{buffer_name}"}]'
+o = ":lsp-workspace-command _typescript.organizeImports \"%sh{realpath %{buffer_name}}\""
 
 [keys.insert]
 j = { k = "normal_mode" }
