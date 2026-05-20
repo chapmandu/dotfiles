@@ -3,6 +3,10 @@
 Adds syntax highlighting for `.cfc` (CFScript) and `.cfm`/`.cfml` (CFML templates) using
 [tree-sitter-cfml](https://github.com/cfmleditor/tree-sitter-cfml).
 
+`.cfc` and `.cfm` are separate language entries so each gets the right comment token:
+- `cfml` → `.cfc` — uses `//` / `/* */`
+- `cfhtml` → `.cfm` — uses `<!--- --->`, shares the `cfml` grammar
+
 ## 1. Add to `~/.config/helix/languages.toml`
 
 ```toml
@@ -60,8 +64,11 @@ Helix looks for highlight queries at `runtime/queries/<grammar-name>/`. The fetc
 sources land at `runtime/grammars/sources/<grammar-name>/<subpath>/queries/`. Symlink
 them so updates from a future fetch are picked up automatically.
 
+`cfhtml` borrows the `cfml` grammar, so it also needs a `queries/cfhtml/` directory
+pointing at the same query files.
+
 ```bash
-mkdir -p ~/.config/helix/runtime/queries/{cfml,cfscript,cfquery}
+mkdir -p ~/.config/helix/runtime/queries/{cfml,cfscript,cfquery,cfhtml}
 
 for grammar in cfml cfscript cfquery; do
   src="$HOME/.config/helix/runtime/grammars/sources/$grammar/$grammar/queries"
@@ -70,9 +77,12 @@ for grammar in cfml cfscript cfquery; do
     ln -sf "$f" "$dest/"
   done
 done
-```
 
-`cfhtml` shares the `cfml` grammar and its queries — no separate step needed.
+# cfhtml shares cfml queries
+for f in ~/.config/helix/runtime/queries/cfml/*.scm; do
+  ln -sf "$f" ~/.config/helix/runtime/queries/cfhtml/
+done
+```
 
 ## Updating
 
@@ -91,4 +101,5 @@ The query symlinks do not need to be recreated.
 hx --health languages | grep -E "cfml|cfhtml|cfscript"
 ```
 
-Expect `✓` in the highlight column for all three.
+Expect `✓` in the highlight column for all three. Open a `.cfm` file and `gc` should
+insert `<!--- --->` comments; open a `.cfc` file and it should insert `//`.
