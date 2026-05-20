@@ -1,6 +1,6 @@
 # CFML Tree-sitter Grammar for Helix
 
-Adds syntax highlighting for `.cfc` (CFScript) and `.cfm` (CFML templates) using
+Adds syntax highlighting for `.cfc` (CFScript) and `.cfm`/`.cfml` (CFML templates) using
 [tree-sitter-cfml](https://github.com/cfmleditor/tree-sitter-cfml).
 
 ## 1. Add to `~/.config/helix/languages.toml`
@@ -9,6 +9,7 @@ Adds syntax highlighting for `.cfc` (CFScript) and `.cfm` (CFML templates) using
 [[language]]
 name = "cfml"
 scope = "source.cfml"
+language-servers = [ "scls" ]
 file-types = ["cfc"]
 comment-tokens = "//"
 block-comment-tokens = { start = "/*", end = "*/" }
@@ -22,20 +23,18 @@ source = { git = "git@github.com:cfmleditor/tree-sitter-cfml.git", rev = "master
 [[language]]
 name = "cfhtml"
 scope = "text.cfhtml"
+grammar = "cfml"
+language-servers = [ "scls" ]
 file-types = ["cfm", "cfml"]
 block-comment-tokens = { start = "<!---", end = "--->" }
 indent = { tab-width = 2, unit = "\t" }
 roots = []
 
-[[grammar]]
-name = "cfhtml"
-source = { git = "git@github.com:cfmleditor/tree-sitter-cfml.git", rev = "master", subpath = "cfhtml" }
-
 [[language]]
 name = "cfscript"
 scope = "source.cfscript"
 file-types = ["cfs"]
-comment-tokens = "//"
+comment-token = "//"
 indent = { tab-width = 2, unit = "\t" }
 roots = []
 
@@ -57,43 +56,31 @@ hx --grammar build
 
 ## 3. Link query files
 
-```bash
-mkdir -p ~/.config/helix/runtime/queries/{cfml,cfhtml,cfscript,cfquery}
+Helix looks for highlight queries at `runtime/queries/<grammar-name>/`. The fetched
+sources land at `runtime/grammars/sources/<grammar-name>/<subpath>/queries/`. Symlink
+them so updates from a future fetch are picked up automatically.
 
-for dialect in cfml cfhtml cfscript cfquery; do
-  src="$HOME/.config/helix/runtime/grammars/sources/$dialect/$dialect/queries"
-  dest="$HOME/.config/helix/runtime/queries/$dialect"
+```bash
+mkdir -p ~/.config/helix/runtime/queries/{cfml,cfscript,cfquery}
+
+for grammar in cfml cfscript cfquery; do
+  src="$HOME/.config/helix/runtime/grammars/sources/$grammar/$grammar/queries"
+  dest="$HOME/.config/helix/runtime/queries/$grammar"
   for f in "$src"/*.scm; do
     ln -sf "$f" "$dest/"
   done
 done
 ```
 
-## 4. Patch upstream highlights.scm files
-
-The grammar uses a Neovim-only predicate that Helix doesn't support. Replace it in
-both `cfml` and `cfhtml` highlight queries:
-
-```bash
-for dialect in cfml cfhtml; do
-  file="$HOME/.config/helix/runtime/grammars/sources/$dialect/$dialect/queries/highlights.scm"
-  sed -i 's/(#lua-match? @comment.documentation "^\/\[\*\]\[\*\]\[^\*\].*\[\*\]\/$")/(#match? @comment.documentation "^\/\\*\\*[^*].*\\*\/$")/' "$file"
-done
-```
+`cfhtml` shares the `cfml` grammar and its queries — no separate step needed.
 
 ## Updating
 
-When tree-sitter-cfml releases updates, fetch and rebuild, then re-apply the patch
-(the fetch overwrites the modified highlights files):
+When tree-sitter-cfml releases updates, fetch and rebuild:
 
 ```bash
 hx --grammar fetch
 hx --grammar build
-
-for dialect in cfml cfhtml; do
-  file="$HOME/.config/helix/runtime/grammars/sources/$dialect/$dialect/queries/highlights.scm"
-  sed -i 's/(#lua-match? @comment.documentation "^\/\[\*\]\[\*\]\[^\*\].*\[\*\]\/$")/(#match? @comment.documentation "^\/\\*\\*[^*].*\\*\/$")/' "$file"
-done
 ```
 
 The query symlinks do not need to be recreated.

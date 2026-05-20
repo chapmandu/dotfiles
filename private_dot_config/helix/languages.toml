@@ -74,15 +74,12 @@ source = { git = "git@github.com:cfmleditor/tree-sitter-cfml.git", rev = "master
 [[language]]
 name = "cfhtml"
 scope = "text.cfhtml"
+grammar = "cfml"
 language-servers = [ "scls" ]
 file-types = ["cfm", "cfml"]
 block-comment-tokens = { start = "<!---", end = "--->" }
 indent = { tab-width = 2, unit = "\t" }
 roots = []
-
-[[grammar]]
-name = "cfhtml"
-source = { git = "git@github.com:cfmleditor/tree-sitter-cfml.git", rev = "master", subpath = "cfhtml" }
 
 [[language]]
 name = "cfscript"
