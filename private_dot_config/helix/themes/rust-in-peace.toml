@@ -1,0 +1,26 @@
+inherits = "dracula"
+
+# Palette: Dracula roles, re-hued from the Megadeth "Rust in Peace" cover.
+# Each accent keeps Dracula's saturation/brightness but takes its hue from
+# the artwork: the green glow hand, the electric-blue cryo tube, the gold
+# and orange logo, the rust reds, the violet skull shading.
+
+[palette]
+background        = "#101530" # hangar deep blue
+black             = "#070a1a"
+comment           = "#6570a8" # muted blue shading
+current_line      = "#151d4275"
+cursorline        = "#151d42"
+cyan              = "#83c2fc" # cryo-tube electric blue (h209)
+darker            = "#0a0e22"
+foreground        = "#d3e0f0" # pale blue highlight white
+green             = "#8cf25c" # glowing hand/orb green (h101)
+grey              = "#62677a"
+indent            = "#1c2547"
+orange            = "#ffc46b" # MEGADETH logo orange (h36)
+pink              = "#f77cb3" # mauve sarcophagus highlights (h333)
+purple            = "#b592f7" # violet skull shading (h261)
+red               = "#fa7a52" # rust / logo-edge red (h14)
+selection         = "#17204a"
+whitespace        = "#57628c"
+yellow            = "#fcee7e" # logo gold (h53)
