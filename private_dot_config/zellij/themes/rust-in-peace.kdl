@@ -1,0 +1,136 @@
+// rust-in-peace — Megadeth "Rust in Peace" cover palette.
+// Component structure follows zellij's built-in tokyo-night theme;
+// the active-accent role is the cover's electric tube blue rather
+// than green, so pane frames and the selected tab stay calm.
+// Companion to ~/.config/helix/themes/rust-in-peace.toml
+//
+// bg #101530 · fg #d3e0f0 · cyan #83c2fc · green #8cf25c · orange #ffc46b
+// red #fa7a52 · pink #f77cb3 · purple #b592f7 · yellow #fcee7e
+themes {
+    rust-in-peace {
+        text_unselected {
+            base 211 224 240
+            background 28 37 71
+            emphasis_0 255 196 107
+            emphasis_1 131 194 252
+            emphasis_2 140 242 92
+            emphasis_3 181 146 247
+        }
+        text_selected {
+            base 211 224 240
+            background 28 37 71
+            emphasis_0 255 196 107
+            emphasis_1 131 194 252
+            emphasis_2 140 242 92
+            emphasis_3 181 146 247
+        }
+        ribbon_selected {
+            base 16 21 48
+            background 131 194 252
+            emphasis_0 250 122 82
+            emphasis_1 255 196 107
+            emphasis_2 181 146 247
+            emphasis_3 101 112 168
+        }
+        ribbon_unselected {
+            base 16 21 48
+            background 87 98 140
+            emphasis_0 250 122 82
+            emphasis_1 211 224 240
+            emphasis_2 101 112 168
+            emphasis_3 181 146 247
+        }
+        table_title {
+            base 131 194 252
+            background 0
+            emphasis_0 255 196 107
+            emphasis_1 131 194 252
+            emphasis_2 140 242 92
+            emphasis_3 181 146 247
+        }
+        table_cell_selected {
+            base 211 224 240
+            background 28 37 71
+            emphasis_0 255 196 107
+            emphasis_1 131 194 252
+            emphasis_2 140 242 92
+            emphasis_3 181 146 247
+        }
+        table_cell_unselected {
+            base 211 224 240
+            background 28 37 71
+            emphasis_0 255 196 107
+            emphasis_1 131 194 252
+            emphasis_2 140 242 92
+            emphasis_3 181 146 247
+        }
+        list_selected {
+            base 211 224 240
+            background 28 37 71
+            emphasis_0 255 196 107
+            emphasis_1 131 194 252
+            emphasis_2 140 242 92
+            emphasis_3 181 146 247
+        }
+        list_unselected {
+            base 211 224 240
+            background 28 37 71
+            emphasis_0 255 196 107
+            emphasis_1 131 194 252
+            emphasis_2 140 242 92
+            emphasis_3 181 146 247
+        }
+        frame_selected {
+            base 131 194 252
+            background 0
+            emphasis_0 255 196 107
+            emphasis_1 131 194 252
+            emphasis_2 181 146 247
+            emphasis_3 0
+        }
+        frame_unselected {
+            base 87 98 140
+            background 0
+            emphasis_0 255 196 107
+            emphasis_1 131 194 252
+            emphasis_2 181 146 247
+            emphasis_3 181 146 247
+        }
+        frame_highlight {
+            base 255 196 107
+            background 0
+            emphasis_0 181 146 247
+            emphasis_1 255 196 107
+            emphasis_2 255 196 107
+            emphasis_3 255 196 107
+        }
+        exit_code_success {
+            base 140 242 92
+            background 0
+            emphasis_0 131 194 252
+            emphasis_1 28 37 71
+            emphasis_2 181 146 247
+            emphasis_3 101 112 168
+        }
+        exit_code_error {
+            base 250 122 82
+            background 0
+            emphasis_0 252 238 126
+            emphasis_1 0
+            emphasis_2 0
+            emphasis_3 0
+        }
+        multiplayer_user_colors {
+            player_1 181 146 247
+            player_2 131 194 252
+            player_3 0
+            player_4 252 238 126
+            player_5 140 242 92
+            player_6 0
+            player_7 250 122 82
+            player_8 0
+            player_9 0
+            player_10 0
+        }
+    }
+}
